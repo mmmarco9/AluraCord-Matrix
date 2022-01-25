@@ -1,37 +1,9 @@
+import React from "react";
+import { useRouter } from "next/router";
 import { Box, Button, Text, TextField, Image } from "@skynexui/components";
 
 import appConfig from "../config.json";
 
-function GlobalStyle() {
-  return (
-    <style global jsx>{`
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        list-style: none;
-      }
-      body {
-        font-family: "Open Sans", sans-serif;
-      }
-      /* App fit Height */
-      html,
-      body,
-      #__next {
-        min-height: 100vh;
-        display: flex;
-        flex: 1;
-      }
-      #__next {
-        flex: 1;
-      }
-      #__next > * {
-        flex: 1;
-      }
-      /* ./App fit Height */
-    `}</style>
-  );
-}
 function Title(props) {
   const Tag = props.tag || "h1";
   return (
@@ -63,11 +35,13 @@ function Title(props) {
 export default HomePage; */
 
 export default function InitialPage() {
-  const username = "mmmarco9";
+  const [userName, setUserName] = React.useState("mmmarco9");
+  const rotas = useRouter();
+  const defaultImage =
+    "https://www.promoview.com.br/uploads/images/unnamed%2819%29.png";
 
   return (
     <>
-      <GlobalStyle />
       <Box
         styleSheet={{
           display: "flex",
@@ -102,6 +76,10 @@ export default function InitialPage() {
           {/* Formulário */}
           <Box
             as="form"
+            onSubmit={(ev) => {
+              ev.preventDefault();
+              rotas.push("/chat");
+            }}
             styleSheet={{
               display: "flex",
               flexDirection: "column",
@@ -124,6 +102,8 @@ export default function InitialPage() {
             </Text>
 
             <TextField
+              onChange={(ev) => setUserName(ev.target.value)}
+              value={userName}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -169,7 +149,11 @@ export default function InitialPage() {
                 borderRadius: "50%",
                 marginBottom: "16px",
               }}
-              src={`https://github.com/${username}.png`}
+              src={
+                userName.length <= 2
+                  ? defaultImage
+                  : `https://github.com/${userName}.png`
+              }
             />
             <Text
               variant="body4"
@@ -180,7 +164,7 @@ export default function InitialPage() {
                 borderRadius: "1000px",
               }}
             >
-              {username}
+              {userName}
             </Text>
           </Box>
           {/* Photo Area */}
