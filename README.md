@@ -1,6 +1,6 @@
 <h1>Discord</h1>
 
-<h5>Aplicação de chat em tempo real </>
+<h5>Aplicação de chat em tempo real (: </>
   <br />
   <br />
   <br />
