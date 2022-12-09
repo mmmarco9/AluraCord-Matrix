@@ -3,7 +3,7 @@
 <h3>Aplicação de chat em tempo real (: </h3>
   <br />
   
-![image](https://user-images.githubusercontent.com/64788904/168494932-579b51df-5ebd-4d1c-afec-5bcaf6cd655d.png)
+![image](https://user-images.githubusercontent.com/64788904/168494932-579b51df-5ebd-4d1c-afec-5bcaf6cd655d.png?#vitrinedev)
 
 <h3>🔧 Tecnologias : <h3>
   <ul>
